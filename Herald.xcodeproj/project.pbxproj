@@ -15,6 +15,10 @@
 		583BBDFF1B0B9975006F1D16 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 583BBDFE1B0B9975006F1D16 /* Images.xcassets */; };
 		583BBE021B0B9975006F1D16 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 583BBE001B0B9975006F1D16 /* MainMenu.xib */; };
 		583BBE0E1B0B9975006F1D16 /* HeraldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 583BBE0D1B0B9975006F1D16 /* HeraldTests.m */; };
+		583BBE191B0B9CB5006F1D16 /* HeraldEditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 583BBE181B0B9CB5006F1D16 /* HeraldEditorView.m */; };
+		583BBE1C1B0BB08A006F1D16 /* BSManagedDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 583BBE1A1B0BB08A006F1D16 /* BSManagedDocument.m */; };
+		583BBE1E1B0BB128006F1D16 /* libobjc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 583BBE1D1B0BB128006F1D16 /* libobjc.dylib */; };
+		583BBE201B0BB130006F1D16 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 583BBE1F1B0BB130006F1D16 /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +46,12 @@
 		583BBE071B0B9975006F1D16 /* HeraldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeraldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		583BBE0C1B0B9975006F1D16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		583BBE0D1B0B9975006F1D16 /* HeraldTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeraldTests.m; sourceTree = "<group>"; };
+		583BBE171B0B9CB5006F1D16 /* HeraldEditorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeraldEditorView.h; sourceTree = "<group>"; };
+		583BBE181B0B9CB5006F1D16 /* HeraldEditorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeraldEditorView.m; sourceTree = "<group>"; };
+		583BBE1A1B0BB08A006F1D16 /* BSManagedDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSManagedDocument.m; sourceTree = "<group>"; };
+		583BBE1B1B0BB08A006F1D16 /* BSManagedDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSManagedDocument.h; sourceTree = "<group>"; };
+		583BBE1D1B0BB128006F1D16 /* libobjc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libobjc.dylib; path = usr/lib/libobjc.dylib; sourceTree = SDKROOT; };
+		583BBE1F1B0BB130006F1D16 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				583BBE201B0BB130006F1D16 /* Cocoa.framework in Frameworks */,
+				583BBE1E1B0BB128006F1D16 /* libobjc.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +77,8 @@
 		583BBDE21B0B9975006F1D16 = {
 			isa = PBXGroup;
 			children = (
+				583BBE1F1B0BB130006F1D16 /* Cocoa.framework */,
+				583BBE1D1B0BB128006F1D16 /* libobjc.dylib */,
 				583BBDED1B0B9975006F1D16 /* Herald */,
 				583BBE0A1B0B9975006F1D16 /* HeraldTests */,
 				583BBDEC1B0B9975006F1D16 /* Products */,
@@ -85,6 +99,8 @@
 			children = (
 				583BBDF01B0B9975006F1D16 /* AppDelegate.h */,
 				583BBDF11B0B9975006F1D16 /* AppDelegate.m */,
+				583BBE1B1B0BB08A006F1D16 /* BSManagedDocument.h */,
+				583BBE1A1B0BB08A006F1D16 /* BSManagedDocument.m */,
 				583BBDF51B0B9975006F1D16 /* Document.h */,
 				583BBDF61B0B9975006F1D16 /* Document.m */,
 				583BBDF81B0B9975006F1D16 /* Document.xib */,
@@ -92,6 +108,8 @@
 				583BBE001B0B9975006F1D16 /* MainMenu.xib */,
 				583BBDFB1B0B9975006F1D16 /* Document.xcdatamodeld */,
 				583BBDEE1B0B9975006F1D16 /* Supporting Files */,
+				583BBE171B0B9CB5006F1D16 /* HeraldEditorView.h */,
+				583BBE181B0B9CB5006F1D16 /* HeraldEditorView.m */,
 			);
 			path = Herald;
 			sourceTree = "<group>";
@@ -225,7 +243,9 @@
 				583BBDFD1B0B9975006F1D16 /* Document.xcdatamodeld in Sources */,
 				583BBDF71B0B9975006F1D16 /* Document.m in Sources */,
 				583BBDF41B0B9975006F1D16 /* main.m in Sources */,
+				583BBE1C1B0BB08A006F1D16 /* BSManagedDocument.m in Sources */,
 				583BBDF21B0B9975006F1D16 /* AppDelegate.m in Sources */,
+				583BBE191B0B9CB5006F1D16 /* HeraldEditorView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@
 #import "Document.h"
 
 @interface Document ()
-
+@property (nonatomic, weak) IBOutlet NSObjectController * documentObjectController;
 @end
 
 @implementation Document
@@ -25,6 +25,20 @@
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController {
     [super windowControllerDidLoadNib:aController];
     // Add any code here that needs to be executed once the windowController has loaded the document's window.
+    
+    NSManagedObject * document = nil;
+    NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Document"];
+    NSArray * sermons = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    if ([sermons count] > 0)
+    {
+        document = [sermons firstObject];
+    }
+    else
+    {
+        document = [NSEntityDescription insertNewObjectForEntityForName:@"Document" inManagedObjectContext:self.managedObjectContext];
+    }
+    
+    _documentObjectController.content = document;
 }
 
 + (BOOL)autosavesInPlace {

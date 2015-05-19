@@ -1,5 +1,5 @@
 //
-//  Document.h
+//  HeraldEditorView.h
 //  Herald
 //
 //  Created by Jason Terhorst on 5/19/15.
@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "BSManagedDocument.h"
 
-@interface Document : BSManagedDocument
+@interface HeraldEditorView : NSView
+
 @end
