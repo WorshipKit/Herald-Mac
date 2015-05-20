@@ -23,26 +23,34 @@
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
     
+    CGFloat padding = 50;
+    CGFloat textWidth = imageSize.width - (padding*2);
+    CGSize textAvailableSize = {textWidth,720};
+    
+    NSShadow * textShadow = [[NSShadow alloc] init];
+    textShadow.shadowColor = [[NSColor blackColor] colorWithAlphaComponent:0.5];
+    textShadow.shadowBlurRadius = 0.5;
+    textShadow.shadowOffset = NSMakeSize(2, -2);
     NSFont * titleFont = [NSFont fontWithName:@"Helvetica-Bold" size:72];
     NSStringDrawingOptions options = NSStringDrawingUsesDeviceMetrics|NSStringDrawingUsesLineFragmentOrigin;
     
-    NSDictionary * titleAttribs = @{NSFontAttributeName:titleFont,NSForegroundColorAttributeName:textColor, NSParagraphStyleAttributeName:paragraphStyle};
-    CGSize titleSize = [title boundingRectWithSize:imageSize options:options attributes:titleAttribs].size;//[title sizeWithAttributes:titleAttribs];
-    CGRect titleRect = {30,20,titleSize.width,titleSize.height};
+    NSDictionary * titleAttribs = @{NSFontAttributeName:titleFont,NSForegroundColorAttributeName:textColor, NSParagraphStyleAttributeName:paragraphStyle, NSShadowAttributeName:textShadow};
+    CGSize titleSize = [title boundingRectWithSize:textAvailableSize options:options attributes:titleAttribs].size;
+    CGRect titleRect = {padding,padding,titleSize.width,titleSize.height + 10};
     [title drawWithRect:titleRect options:options attributes:titleAttribs];
     
-    NSDictionary * subtitleAttribs = @{NSFontAttributeName:[NSFont fontWithName:[titleFont fontName] size:[titleFont pointSize]*0.85], NSForegroundColorAttributeName:textColor, NSParagraphStyleAttributeName:paragraphStyle};
-    CGSize subtitleSize = [subtitle boundingRectWithSize:imageSize options:options attributes:subtitleAttribs].size;
+    NSDictionary * subtitleAttribs = @{NSFontAttributeName:[NSFont fontWithName:[titleFont fontName] size:[titleFont pointSize]*0.85], NSForegroundColorAttributeName:textColor, NSParagraphStyleAttributeName:paragraphStyle, NSShadowAttributeName:textShadow};
+    CGSize subtitleSize = [subtitle boundingRectWithSize:textAvailableSize options:options attributes:subtitleAttribs].size;
     CGRect subtitleRect = {titleRect.origin.x,titleRect.origin.y+titleRect.size.height+10,subtitleSize.width,subtitleSize.height};
     [subtitle drawWithRect:subtitleRect options:options attributes:subtitleAttribs];
     
-    NSDictionary * detailAttribs = @{NSFontAttributeName:[NSFont fontWithName:@"Helvetica" size:[titleFont pointSize]*0.75], NSForegroundColorAttributeName:textColor, NSParagraphStyleAttributeName:paragraphStyle};
-    CGSize detailSize = [details boundingRectWithSize:imageSize options:options attributes:detailAttribs].size;
+    NSDictionary * detailAttribs = @{NSFontAttributeName:[NSFont fontWithName:@"Helvetica" size:[titleFont pointSize]*0.75], NSForegroundColorAttributeName:textColor, NSParagraphStyleAttributeName:paragraphStyle, NSShadowAttributeName:textShadow};
+    CGSize detailSize = [details boundingRectWithSize:textAvailableSize options:options attributes:detailAttribs].size;
     CGRect detailRect = {titleRect.origin.x,subtitleRect.origin.y+subtitleRect.size.height+20,detailSize.width,detailSize.height+20};
     [details drawWithRect:detailRect options:options attributes:detailAttribs];
     
-    NSDictionary * infoAttribs = @{NSFontAttributeName:[NSFont fontWithName:@"Helvetica-BoldOblique" size:[titleFont pointSize]*0.5], NSForegroundColorAttributeName:textColor, NSParagraphStyleAttributeName:paragraphStyle};
-    CGSize infoSize = [moreInfo boundingRectWithSize:imageSize options:options attributes:infoAttribs].size;
+    NSDictionary * infoAttribs = @{NSFontAttributeName:[NSFont fontWithName:@"Helvetica-BoldOblique" size:[titleFont pointSize]*0.5], NSForegroundColorAttributeName:textColor, NSParagraphStyleAttributeName:paragraphStyle, NSShadowAttributeName:textShadow};
+    CGSize infoSize = [moreInfo boundingRectWithSize:textAvailableSize options:options attributes:infoAttribs].size;
     CGRect infoRect = {titleRect.origin.x,detailRect.origin.y+detailRect.size.height+20,infoSize.width,infoSize.height+20};
     [moreInfo drawWithRect:infoRect options:options attributes:infoAttribs];
     

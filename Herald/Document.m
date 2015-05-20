@@ -63,7 +63,7 @@
 - (void)_updateImage
 {
     SlideDocument * document = _documentObjectController.content;
-    NSColor * backgroundColor = [NSColor colorFromHexadecimalValue:document.backgroundColor];
+    NSColor * backgroundColor = [NSColor purpleColor];//[NSColor colorFromHexadecimalValue:document.backgroundColor];
     
     _imagePreview.image = [_imageGenerator imageForTitle:document.title subtitle:document.subtitle details:document.detail moreInfo:document.moreInfo textColor:[NSColor whiteColor] backgroundColor:backgroundColor];
 }
