@@ -9,6 +9,7 @@
 #import "Document.h"
 #import "SlideGenerator.h"
 #import "SlideDocument.h"
+#import "NSColor+String.h"
 
 @interface Document ()
 @property (nonatomic, weak) IBOutlet NSObjectController * documentObjectController;
@@ -61,9 +62,10 @@
 
 - (void)_updateImage
 {
-    NSLog(@"updating image");
     SlideDocument * document = _documentObjectController.content;
-    _imagePreview.image = [_imageGenerator imageForTitle:document.title subtitle:document.subtitle details:document.detail moreInfo:document.moreInfo];
+    NSColor * backgroundColor = [NSColor colorFromHexadecimalValue:document.backgroundColor];
+    
+    _imagePreview.image = [_imageGenerator imageForTitle:document.title subtitle:document.subtitle details:document.detail moreInfo:document.moreInfo textColor:[NSColor whiteColor] backgroundColor:backgroundColor];
 }
 
 + (BOOL)autosavesInPlace {

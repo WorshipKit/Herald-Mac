@@ -15,5 +15,6 @@
 @dynamic moreInfo;
 @dynamic subtitle;
 @dynamic title;
+@dynamic backgroundColor;
 
 @end

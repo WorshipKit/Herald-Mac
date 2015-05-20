@@ -20,6 +20,7 @@
 		583BBE1E1B0BB128006F1D16 /* libobjc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 583BBE1D1B0BB128006F1D16 /* libobjc.dylib */; };
 		583BBE201B0BB130006F1D16 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 583BBE1F1B0BB130006F1D16 /* Cocoa.framework */; };
 		583BBE231B0CF5F1006F1D16 /* SlideDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 583BBE221B0CF5F1006F1D16 /* SlideDocument.m */; };
+		583BBE271B0D04DA006F1D16 /* NSColor+String.m in Sources */ = {isa = PBXBuildFile; fileRef = 583BBE261B0D04DA006F1D16 /* NSColor+String.m */; };
 		5865A16D1B0C2718008CB519 /* SlideGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5865A16C1B0C2718008CB519 /* SlideGenerator.m */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,8 @@
 		583BBE1F1B0BB130006F1D16 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		583BBE211B0CF5F1006F1D16 /* SlideDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideDocument.h; sourceTree = "<group>"; };
 		583BBE221B0CF5F1006F1D16 /* SlideDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideDocument.m; sourceTree = "<group>"; };
+		583BBE251B0D04DA006F1D16 /* NSColor+String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+String.h"; sourceTree = "<group>"; };
+		583BBE261B0D04DA006F1D16 /* NSColor+String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+String.m"; sourceTree = "<group>"; };
 		5865A16B1B0C2718008CB519 /* SlideGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideGenerator.h; sourceTree = "<group>"; };
 		5865A16C1B0C2718008CB519 /* SlideGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideGenerator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +123,8 @@
 				583BBE181B0B9CB5006F1D16 /* HeraldEditorView.m */,
 				5865A16B1B0C2718008CB519 /* SlideGenerator.h */,
 				5865A16C1B0C2718008CB519 /* SlideGenerator.m */,
+				583BBE251B0D04DA006F1D16 /* NSColor+String.h */,
+				583BBE261B0D04DA006F1D16 /* NSColor+String.m */,
 			);
 			path = Herald;
 			sourceTree = "<group>";
@@ -252,6 +257,7 @@
 			files = (
 				5865A16D1B0C2718008CB519 /* SlideGenerator.m in Sources */,
 				583BBDFD1B0B9975006F1D16 /* Document.xcdatamodeld in Sources */,
+				583BBE271B0D04DA006F1D16 /* NSColor+String.m in Sources */,
 				583BBDF71B0B9975006F1D16 /* Document.m in Sources */,
 				583BBDF41B0B9975006F1D16 /* main.m in Sources */,
 				583BBE231B0CF5F1006F1D16 /* SlideDocument.m in Sources */,
