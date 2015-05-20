@@ -19,6 +19,7 @@
 		583BBE1C1B0BB08A006F1D16 /* BSManagedDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 583BBE1A1B0BB08A006F1D16 /* BSManagedDocument.m */; };
 		583BBE1E1B0BB128006F1D16 /* libobjc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 583BBE1D1B0BB128006F1D16 /* libobjc.dylib */; };
 		583BBE201B0BB130006F1D16 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 583BBE1F1B0BB130006F1D16 /* Cocoa.framework */; };
+		5865A16D1B0C2718008CB519 /* SlideGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5865A16C1B0C2718008CB519 /* SlideGenerator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,8 @@
 		583BBE1B1B0BB08A006F1D16 /* BSManagedDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSManagedDocument.h; sourceTree = "<group>"; };
 		583BBE1D1B0BB128006F1D16 /* libobjc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libobjc.dylib; path = usr/lib/libobjc.dylib; sourceTree = SDKROOT; };
 		583BBE1F1B0BB130006F1D16 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		5865A16B1B0C2718008CB519 /* SlideGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideGenerator.h; sourceTree = "<group>"; };
+		5865A16C1B0C2718008CB519 /* SlideGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideGenerator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,8 @@
 				583BBDEE1B0B9975006F1D16 /* Supporting Files */,
 				583BBE171B0B9CB5006F1D16 /* HeraldEditorView.h */,
 				583BBE181B0B9CB5006F1D16 /* HeraldEditorView.m */,
+				5865A16B1B0C2718008CB519 /* SlideGenerator.h */,
+				5865A16C1B0C2718008CB519 /* SlideGenerator.m */,
 			);
 			path = Herald;
 			sourceTree = "<group>";
@@ -240,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5865A16D1B0C2718008CB519 /* SlideGenerator.m in Sources */,
 				583BBDFD1B0B9975006F1D16 /* Document.xcdatamodeld in Sources */,
 				583BBDF71B0B9975006F1D16 /* Document.m in Sources */,
 				583BBDF41B0B9975006F1D16 /* main.m in Sources */,
@@ -443,6 +449,7 @@
 				583BBE131B0B9975006F1D16 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		583BBE141B0B9975006F1D16 /* Build configuration list for PBXNativeTarget "HeraldTests" */ = {
 			isa = XCConfigurationList;
@@ -451,6 +458,7 @@
 				583BBE161B0B9975006F1D16 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
