@@ -7,8 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "BSManagedDocument.h"
+#import <CoreData/CoreData.h>
 
-@interface Document : BSManagedDocument
+@interface Document : NSPersistentDocument
 
 @end

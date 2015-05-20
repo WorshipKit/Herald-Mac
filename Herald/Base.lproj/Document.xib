@@ -7,6 +7,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="Document">
             <connections>
                 <outlet property="documentObjectController" destination="ljs-LP-SIg" id="UnZ-4C-tHs"/>
+                <outlet property="imagePreview" destination="Tdt-SH-bp4" id="5q3-SW-PsM"/>
                 <outlet property="window" destination="xOd-HO-29H" id="JIz-fz-R2o"/>
             </connections>
         </customObject>
@@ -22,8 +23,12 @@
                 <rect key="frame" x="0.0" y="-1" width="660" height="434"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JeL-pc-xbw">
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JeL-pc-xbw">
                         <rect key="frame" x="20" y="392" width="236" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="bpz-Kw-wkl"/>
+                            <constraint firstAttribute="width" constant="236" id="sW4-lU-RDp"/>
+                        </constraints>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Title" drawsBackground="YES" id="636-ZR-Q8W">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -40,8 +45,12 @@
                             </binding>
                         </connections>
                     </textField>
-                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aki-xC-1PY">
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Aki-xC-1PY">
                         <rect key="frame" x="20" y="360" width="236" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="236" id="LeH-sy-sTf"/>
+                            <constraint firstAttribute="height" constant="22" id="MBB-vv-XOX"/>
+                        </constraints>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Subtitle" drawsBackground="YES" id="Iq8-rI-0HB">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -58,8 +67,12 @@
                             </binding>
                         </connections>
                     </textField>
-                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0fz-3n-faf">
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0fz-3n-faf">
                         <rect key="frame" x="20" y="328" width="236" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="8rM-CK-7aG"/>
+                            <constraint firstAttribute="width" constant="236" id="lgz-g9-pmM"/>
+                        </constraints>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Details" drawsBackground="YES" id="dhF-Ug-o7K">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -76,8 +89,12 @@
                             </binding>
                         </connections>
                     </textField>
-                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cUZ-XT-7Sw">
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cUZ-XT-7Sw">
                         <rect key="frame" x="20" y="296" width="236" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="236" id="aS6-ub-kdi"/>
+                            <constraint firstAttribute="height" constant="22" id="ta9-ny-Dwo"/>
+                        </constraints>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Contact/Web" drawsBackground="YES" id="60D-fF-KcU">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -94,14 +111,32 @@
                             </binding>
                         </connections>
                     </textField>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tdt-SH-bp4">
+                        <rect key="frame" x="264" y="20" width="376" height="394"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="aAI-QZ-EIg"/>
+                    </imageView>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="cUZ-XT-7Sw" firstAttribute="leading" secondItem="gIp-Ho-8D9" secondAttribute="leading" constant="20" id="1dS-2S-r1c"/>
+                    <constraint firstAttribute="trailing" secondItem="Tdt-SH-bp4" secondAttribute="trailing" constant="20" id="3re-2c-WHo"/>
+                    <constraint firstItem="Aki-xC-1PY" firstAttribute="leading" secondItem="gIp-Ho-8D9" secondAttribute="leading" constant="20" id="BQ2-59-OZp"/>
+                    <constraint firstItem="Tdt-SH-bp4" firstAttribute="top" secondItem="gIp-Ho-8D9" secondAttribute="top" constant="20" id="R7b-cu-CZm"/>
+                    <constraint firstItem="JeL-pc-xbw" firstAttribute="top" secondItem="gIp-Ho-8D9" secondAttribute="top" constant="20" id="RkS-F1-Iyb"/>
+                    <constraint firstItem="0fz-3n-faf" firstAttribute="top" secondItem="Aki-xC-1PY" secondAttribute="bottom" constant="10" id="Sda-jI-RMb"/>
+                    <constraint firstItem="cUZ-XT-7Sw" firstAttribute="top" secondItem="0fz-3n-faf" secondAttribute="bottom" constant="10" id="TI1-Gz-91H"/>
+                    <constraint firstItem="Aki-xC-1PY" firstAttribute="top" secondItem="JeL-pc-xbw" secondAttribute="bottom" constant="10" id="VfJ-3m-wXC"/>
+                    <constraint firstItem="JeL-pc-xbw" firstAttribute="leading" secondItem="gIp-Ho-8D9" secondAttribute="leading" constant="20" id="ZqP-7S-mRV"/>
+                    <constraint firstAttribute="bottom" secondItem="Tdt-SH-bp4" secondAttribute="bottom" constant="20" id="bM2-w0-A3Y"/>
+                    <constraint firstItem="Tdt-SH-bp4" firstAttribute="leading" secondItem="cUZ-XT-7Sw" secondAttribute="trailing" constant="8" id="h2z-EN-IAw"/>
+                    <constraint firstItem="0fz-3n-faf" firstAttribute="leading" secondItem="gIp-Ho-8D9" secondAttribute="leading" constant="20" id="k0T-Fb-RXh"/>
+                </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-x8E"/>
             </connections>
             <point key="canvasLocation" x="382" y="401"/>
         </window>
-        <objectController mode="entity" entityName="Document" automaticallyPreparesContent="YES" id="ljs-LP-SIg">
+        <objectController mode="entity" entityName="SlideDocument" automaticallyPreparesContent="YES" id="ljs-LP-SIg">
             <connections>
                 <binding destination="-2" name="managedObjectContext" keyPath="managedObjectContext" id="pEA-Ny-mOh"/>
             </connections>

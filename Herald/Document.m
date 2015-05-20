@@ -7,9 +7,13 @@
 //
 
 #import "Document.h"
+#import "SlideGenerator.h"
+#import "SlideDocument.h"
 
 @interface Document ()
 @property (nonatomic, weak) IBOutlet NSObjectController * documentObjectController;
+@property (nonatomic, weak) IBOutlet NSImageView * imagePreview;
+@property (nonatomic, strong) SlideGenerator * imageGenerator;
 @end
 
 @implementation Document
@@ -26,8 +30,8 @@
     [super windowControllerDidLoadNib:aController];
     // Add any code here that needs to be executed once the windowController has loaded the document's window.
     
-    NSManagedObject * document = nil;
-    NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Document"];
+    SlideDocument * document = nil;
+    NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"SlideDocument"];
     NSArray * sermons = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
     if ([sermons count] > 0)
     {
@@ -35,10 +39,31 @@
     }
     else
     {
-        document = [NSEntityDescription insertNewObjectForEntityForName:@"Document" inManagedObjectContext:self.managedObjectContext];
+        document = [NSEntityDescription insertNewObjectForEntityForName:@"SlideDocument" inManagedObjectContext:self.managedObjectContext];
     }
     
     _documentObjectController.content = document;
+    
+    _imageGenerator = [[SlideGenerator alloc] init];
+    [self _updateImage];
+    
+    [_documentObjectController.content addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:nil];
+    [_documentObjectController.content addObserver:self forKeyPath:@"subtitle" options:NSKeyValueObservingOptionNew context:nil];
+    [_documentObjectController.content addObserver:self forKeyPath:@"detail" options:NSKeyValueObservingOptionNew context:nil];
+    [_documentObjectController.content addObserver:self forKeyPath:@"moreInfo" options:NSKeyValueObservingOptionNew context:nil];
+    
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    [self _updateImage];
+}
+
+- (void)_updateImage
+{
+    NSLog(@"updating image");
+    SlideDocument * document = _documentObjectController.content;
+    _imagePreview.image = [_imageGenerator imageForTitle:document.title subtitle:document.subtitle details:document.detail moreInfo:document.moreInfo];
 }
 
 + (BOOL)autosavesInPlace {
