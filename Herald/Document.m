@@ -47,16 +47,16 @@
     
     _imageGenerator = [[SlideGenerator alloc] init];
     [self _updateImage];
-    
-    [_documentObjectController.content addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:nil];
-    [_documentObjectController.content addObserver:self forKeyPath:@"subtitle" options:NSKeyValueObservingOptionNew context:nil];
-    [_documentObjectController.content addObserver:self forKeyPath:@"detail" options:NSKeyValueObservingOptionNew context:nil];
-    [_documentObjectController.content addObserver:self forKeyPath:@"moreInfo" options:NSKeyValueObservingOptionNew context:nil];
-    
+
+	[_documentObjectController.content addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:nil];
+	[_documentObjectController.content addObserver:self forKeyPath:@"subtitle" options:NSKeyValueObservingOptionNew context:nil];
+	[_documentObjectController.content addObserver:self forKeyPath:@"detail" options:NSKeyValueObservingOptionNew context:nil];
+	[_documentObjectController.content addObserver:self forKeyPath:@"moreInfo" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
+	[NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(_updateImage) object:nil];
     [self _updateImage];
 }
 
