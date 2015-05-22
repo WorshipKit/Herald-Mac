@@ -64,8 +64,9 @@
 {
     SlideDocument * document = _documentObjectController.content;
     NSColor * backgroundColor = [NSColor purpleColor];//[NSColor colorFromHexadecimalValue:document.backgroundColor];
-    
-    _imagePreview.image = [_imageGenerator imageForTitle:document.title subtitle:document.subtitle details:document.detail moreInfo:document.moreInfo textColor:[NSColor whiteColor] backgroundColor:backgroundColor];
+
+	_imagePreview.image = [_imageGenerator imageForTitle:document.title subtitle:document.subtitle details:document.detail moreInfo:document.moreInfo textColor:[NSColor whiteColor] backgroundColor:backgroundColor width:_imagePreview.bounds.size.width];
+
 }
 
 + (BOOL)autosavesInPlace {

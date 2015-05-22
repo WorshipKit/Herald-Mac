@@ -11,39 +11,45 @@
 
 @implementation SlideGenerator
 
-- (NSImage *)imageForTitle:(NSString *)title subtitle:(NSString *)subtitle details:(NSString *)details moreInfo:(NSString *)moreInfo textColor:(NSColor *)textColor backgroundColor:(NSColor *)backgroundColor;
+- (NSImage *)imageForTitle:(NSString *)title subtitle:(NSString *)subtitle details:(NSString *)details moreInfo:(NSString *)moreInfo textColor:(NSColor *)textColor backgroundColor:(NSColor *)backgroundColor width:(CGFloat)width;
 {
 	//CGFloat scale = [[NSScreen mainScreen] backingScaleFactor];
-    CGSize imageSize = {960,720};
-    NSImage * img = [[NSImage alloc] initWithSize:imageSize];
+	CGFloat aspect = 9.0f/16.0f;
+	CGSize size = {width,width * aspect};
+    NSImage * img = [[NSImage alloc] initWithSize:size];
     [img lockFocusFlipped:YES];
     
     [backgroundColor set];
-    [[NSBezierPath bezierPathWithRect:NSMakeRect(0, 0, imageSize.width, imageSize.height)] fill];
+    [[NSBezierPath bezierPathWithRect:NSMakeRect(0, 0, size.width, size.height)] fill];
     
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
     
-    CGFloat padding = 80;
-    CGFloat textWidth = imageSize.width - (padding*2);
-    CGSize textAvailableSize = {textWidth,720};
+    CGFloat padding = size.width*0.0833;
+    CGFloat textWidth = size.width - (padding*2);
+    CGSize textAvailableSize = {textWidth,size.height};
     
     NSShadow * textShadow = [[NSShadow alloc] init];
     textShadow.shadowColor = [[NSColor blackColor] colorWithAlphaComponent:0.5];
     textShadow.shadowBlurRadius = 0.5;
     textShadow.shadowOffset = NSMakeSize(2, -2);
-    NSFont * titleFont = [NSFont fontWithName:@"MyriadPro-Bold" size:72];
+	CGFloat titleFontSize = size.width*0.069;
+    NSFont * titleFont = [NSFont fontWithName:@"MyriadPro-Bold" size:titleFontSize];
 	if (!titleFont) {
-		titleFont = [NSFont fontWithName:@"Helvetica-Bold" size:72];
+		titleFont = [NSFont fontWithName:@"Helvetica-Bold" size:titleFontSize];
 	}
     NSStringDrawingOptions options = NSStringDrawingUsesDeviceMetrics|NSStringDrawingUsesLineFragmentOrigin;
-    
+
+	CGFloat topSpacing = size.height*0.15;
+	CGFloat extraWidth = size.width*0.019;
+	CGFloat extraLineHeight = size.height * 0.013;
+
     NSDictionary * titleAttribs = @{NSFontAttributeName:titleFont,NSForegroundColorAttributeName:textColor, NSParagraphStyleAttributeName:paragraphStyle, NSShadowAttributeName:textShadow};
 	CGRect titleBoundingRect = [title boundingRectWithSize:textAvailableSize options:options attributes:titleAttribs];
 	CGSize titleSize = titleBoundingRect.size;
 	titleSize.width = titleSize.width + titleBoundingRect.origin.x;
 	titleSize.height = titleSize.height + titleBoundingRect.origin.y;
-    CGRect titleRect = {padding,130,titleSize.width + 20,titleSize.height + 30};
+    CGRect titleRect = {padding,topSpacing,titleSize.width + extraWidth,titleSize.height + extraLineHeight};
     [title drawWithRect:titleRect options:options attributes:titleAttribs];
     
     NSDictionary * subtitleAttribs = @{NSFontAttributeName:[NSFont fontWithName:[titleFont fontName] size:[titleFont pointSize]*0.85], NSForegroundColorAttributeName:textColor, NSParagraphStyleAttributeName:paragraphStyle, NSShadowAttributeName:textShadow};
@@ -51,18 +57,18 @@
 	CGSize subtitleSize = subtitleBoundingRect.size;
 	subtitleSize.width = subtitleSize.width + subtitleBoundingRect.origin.x;
 	subtitleSize.height = subtitleSize.height + subtitleBoundingRect.origin.y;
-    CGRect subtitleRect = {titleRect.origin.x,titleRect.origin.y+titleRect.size.height+20,subtitleSize.width + 20,subtitleSize.height+30};
+    CGRect subtitleRect = {titleRect.origin.x,titleRect.origin.y+titleRect.size.height+extraLineHeight,subtitleSize.width + extraWidth,subtitleSize.height+extraLineHeight};
     [subtitle drawWithRect:subtitleRect options:options attributes:subtitleAttribs];
 
 	NSFont * detailFont = [[NSFontManager sharedFontManager] convertFont:titleFont toNotHaveTrait:NSFontBoldTrait];
-    NSDictionary * detailAttribs = @{NSFontAttributeName:[NSFont fontWithName:[detailFont fontName] size:[titleFont pointSize]*0.75], NSForegroundColorAttributeName:textColor, NSParagraphStyleAttributeName:paragraphStyle, NSShadowAttributeName:textShadow};
+    NSDictionary * detailAttribs = @{NSFontAttributeName:[NSFont fontWithName:[detailFont fontName] size:[titleFont pointSize]*0.7], NSForegroundColorAttributeName:textColor, NSParagraphStyleAttributeName:paragraphStyle, NSShadowAttributeName:textShadow};
     CGSize detailSize = [details boundingRectWithSize:textAvailableSize options:options attributes:detailAttribs].size;
-    CGRect detailRect = {titleRect.origin.x,subtitleRect.origin.y+subtitleRect.size.height+20,detailSize.width + 20,detailSize.height+20};
+    CGRect detailRect = {titleRect.origin.x,subtitleRect.origin.y+subtitleRect.size.height+extraLineHeight,detailSize.width + extraLineHeight,detailSize.height + extraLineHeight};
     [details drawWithRect:detailRect options:options attributes:detailAttribs];
     
     NSDictionary * infoAttribs = @{NSFontAttributeName:[NSFont fontWithName:[titleFont fontName] size:[titleFont pointSize]*0.5], NSForegroundColorAttributeName:textColor, NSParagraphStyleAttributeName:paragraphStyle, NSShadowAttributeName:textShadow};
     CGSize infoSize = [moreInfo boundingRectWithSize:textAvailableSize options:options attributes:infoAttribs].size;
-    CGRect infoRect = {titleRect.origin.x,detailRect.origin.y+detailRect.size.height+20,infoSize.width + 20,infoSize.height+40};
+    CGRect infoRect = {titleRect.origin.x,detailRect.origin.y+detailRect.size.height + extraLineHeight,infoSize.width + extraWidth,infoSize.height + extraLineHeight};
     [moreInfo drawWithRect:infoRect options:options attributes:infoAttribs];
     
     
