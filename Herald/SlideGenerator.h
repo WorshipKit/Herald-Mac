@@ -11,6 +11,6 @@
 
 @interface SlideGenerator : NSObject
 
-- (NSImage *)imageForTitle:(NSString *)title subtitle:(NSString *)subtitle details:(NSString *)details moreInfo:(NSString *)moreInfo textColor:(NSColor *)textColor backgroundColor:(NSColor *)backgroundColor width:(CGFloat)width;
+- (NSImage *)imageForTitle:(NSString *)title subtitle:(NSString *)subtitle details:(NSString *)details moreInfo:(NSString *)moreInfo textColor:(NSColor *)textColor backgroundColor:(NSColor *)backgroundColor backgroundImage:(NSImage *)backgroundImage width:(CGFloat)width;
 
 @end

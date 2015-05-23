@@ -10,5 +10,7 @@
 #import <CoreData/CoreData.h>
 
 @interface Document : NSPersistentDocument
+- (IBAction)importImage:(id)sender;
 - (IBAction)exportImage:(id)sender;
+- (IBAction)removeBackground:(id)sender;
 @end

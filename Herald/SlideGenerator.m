@@ -11,7 +11,7 @@
 
 @implementation SlideGenerator
 
-- (NSImage *)imageForTitle:(NSString *)title subtitle:(NSString *)subtitle details:(NSString *)details moreInfo:(NSString *)moreInfo textColor:(NSColor *)textColor backgroundColor:(NSColor *)backgroundColor width:(CGFloat)width;
+- (NSImage *)imageForTitle:(NSString *)title subtitle:(NSString *)subtitle details:(NSString *)details moreInfo:(NSString *)moreInfo textColor:(NSColor *)textColor backgroundColor:(NSColor *)backgroundColor backgroundImage:(NSImage *)backgroundImage width:(CGFloat)width;
 {
 	//CGFloat scale = [[NSScreen mainScreen] backingScaleFactor];
 	CGFloat aspect = 9.0f/16.0f;
@@ -21,10 +21,28 @@
     
     [backgroundColor set];
     [[NSBezierPath bezierPathWithRect:NSMakeRect(0, 0, size.width, size.height)] fill];
-    
+
+	if (backgroundImage) {
+		CGSize imageSize = [backgroundImage size];
+		//CGFloat imageRatio = imageSize.height/imageSize.width;
+		if (imageSize.width > imageSize.height) {
+			CGFloat imageScale = imageSize.width/size.width;
+			imageSize.width = imageSize.width * imageScale;
+			imageSize.height = imageSize.height * imageScale;
+		} else {
+			CGFloat imageScale = imageSize.height/size.height;
+			imageSize.height = imageSize.height * imageScale;
+			imageSize.width = imageSize.width * imageScale;
+		}
+
+		CGRect imageRect = CGRectMake((size.width - imageSize.width)/2, (size.height - imageSize.height)/2, imageSize.width, imageSize.height);
+		[backgroundImage drawInRect:imageRect];
+	}
+
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
-    
+
+	CGFloat shadowOffset = (2.0/960.0)*size.width;
     CGFloat padding = size.width*0.0833;
     CGFloat textWidth = size.width - (padding*2);
     CGSize textAvailableSize = {textWidth,size.height};
@@ -32,7 +50,7 @@
     NSShadow * textShadow = [[NSShadow alloc] init];
     textShadow.shadowColor = [[NSColor blackColor] colorWithAlphaComponent:0.5];
     textShadow.shadowBlurRadius = 0.5;
-    textShadow.shadowOffset = NSMakeSize(2, -2);
+    textShadow.shadowOffset = NSMakeSize(shadowOffset, -shadowOffset);
 	CGFloat titleFontSize = size.width*0.069;
     NSFont * titleFont = [NSFont fontWithName:@"MyriadPro-Bold" size:titleFontSize];
 	if (!titleFont) {

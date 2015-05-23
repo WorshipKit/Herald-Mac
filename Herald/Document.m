@@ -29,6 +29,34 @@
     return self;
 }
 
+- (IBAction)importImage:(id)sender
+{
+	NSOpenPanel * openImagePanel = [NSOpenPanel openPanel];
+	[openImagePanel setAllowedFileTypes:@[@"png",@"jpg"]];
+	[openImagePanel setAllowsMultipleSelection:NO];
+	[openImagePanel setAllowsOtherFileTypes:NO];
+
+	NSModalResponse response = [openImagePanel runModal];
+	if (response == NSModalResponseOK) {
+		NSURL * fileURL = [openImagePanel URL];
+		NSImage * image = [[NSImage alloc] initWithContentsOfURL:fileURL];
+		NSData * imageData = [image TIFFRepresentation];
+
+		SlideDocument * document = _documentObjectController.content;
+		document.imageData = imageData;
+
+		[self _updateImage];
+	}
+}
+
+- (IBAction)removeBackground:(id)sender
+{
+	SlideDocument * document = _documentObjectController.content;
+	document.imageData = nil;
+
+	[self _updateImage];
+}
+
 - (IBAction)exportImage:(id)sender
 {
 	NSSavePanel * imageSavePanel = [NSSavePanel savePanel];
@@ -40,8 +68,12 @@
 
 		SlideDocument * document = _documentObjectController.content;
 		NSColor * backgroundColor = [NSColor colorFromHexadecimalValue:document.backgroundColor];
+		NSImage * backgroundImage = nil;
+		if (document.imageData) {
+			backgroundImage = [[NSImage alloc] initWithData:document.imageData];
+		}
 
-		NSImage * outputImage = [_imageGenerator imageForTitle:document.title subtitle:document.subtitle details:document.detail moreInfo:document.moreInfo textColor:[NSColor whiteColor] backgroundColor:backgroundColor width:1920];
+		NSImage * outputImage = [_imageGenerator imageForTitle:document.title subtitle:document.subtitle details:document.detail moreInfo:document.moreInfo textColor:[NSColor whiteColor] backgroundColor:backgroundColor backgroundImage:backgroundImage width:1920];
 
 		CGImageRef cgRef = [outputImage CGImageForProposedRect:NULL
 												 context:nil
@@ -89,6 +121,7 @@
 	[_documentObjectController.content addObserver:self forKeyPath:@"detail" options:NSKeyValueObservingOptionNew context:nil];
 	[_documentObjectController.content addObserver:self forKeyPath:@"moreInfo" options:NSKeyValueObservingOptionNew context:nil];
 	[_documentObjectController.content addObserver:self forKeyPath:@"color" options:NSKeyValueObservingOptionNew context:nil];
+	[_documentObjectController.content addObserver:self forKeyPath:@"imageData" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -101,8 +134,12 @@
 {
     SlideDocument * document = _documentObjectController.content;
     NSColor * backgroundColor = [NSColor colorFromHexadecimalValue:document.backgroundColor];
-
-	_imagePreview.image = [_imageGenerator imageForTitle:document.title subtitle:document.subtitle details:document.detail moreInfo:document.moreInfo textColor:[NSColor whiteColor] backgroundColor:backgroundColor width:_imagePreview.bounds.size.width];
+	NSImage * backgroundImage = nil;
+	if (document.imageData) {
+		backgroundImage = [[NSImage alloc] initWithData:document.imageData];
+	}
+	
+	_imagePreview.image = [_imageGenerator imageForTitle:document.title subtitle:document.subtitle details:document.detail moreInfo:document.moreInfo textColor:[NSColor whiteColor] backgroundColor:backgroundColor backgroundImage:backgroundImage width:_imagePreview.bounds.size.width];
 	_colorWell.color = [NSColor colorFromHexadecimalValue:document.backgroundColor];
 }
 
