@@ -52,7 +52,7 @@
     CGRect titleRect = {padding,topSpacing,titleSize.width + extraWidth,titleSize.height + extraLineHeight};
     [title drawWithRect:titleRect options:options attributes:titleAttribs];
     
-    NSDictionary * subtitleAttribs = @{NSFontAttributeName:[NSFont fontWithName:[titleFont fontName] size:[titleFont pointSize]*0.85], NSForegroundColorAttributeName:textColor, NSParagraphStyleAttributeName:paragraphStyle, NSShadowAttributeName:textShadow};
+    NSDictionary * subtitleAttribs = @{NSFontAttributeName:[NSFont fontWithName:[titleFont fontName] size:[titleFont pointSize]*0.85], NSForegroundColorAttributeName:[textColor colorWithAlphaComponent:0.7], NSParagraphStyleAttributeName:paragraphStyle};
 	CGRect subtitleBoundingRect = [subtitle boundingRectWithSize:textAvailableSize options:options attributes:subtitleAttribs];
 	CGSize subtitleSize = subtitleBoundingRect.size;
 	subtitleSize.width = subtitleSize.width + subtitleBoundingRect.origin.x;
@@ -60,13 +60,13 @@
     CGRect subtitleRect = {titleRect.origin.x,titleRect.origin.y+titleRect.size.height+extraLineHeight,subtitleSize.width + extraWidth,subtitleSize.height+extraLineHeight};
     [subtitle drawWithRect:subtitleRect options:options attributes:subtitleAttribs];
 
-	NSFont * detailFont = [[NSFontManager sharedFontManager] convertFont:titleFont toNotHaveTrait:NSFontBoldTrait];
-    NSDictionary * detailAttribs = @{NSFontAttributeName:[NSFont fontWithName:[detailFont fontName] size:[titleFont pointSize]*0.7], NSForegroundColorAttributeName:textColor, NSParagraphStyleAttributeName:paragraphStyle, NSShadowAttributeName:textShadow};
+    NSDictionary * detailAttribs = @{NSFontAttributeName:[NSFont fontWithName:[titleFont fontName] size:[titleFont pointSize]*0.7], NSForegroundColorAttributeName:textColor, NSParagraphStyleAttributeName:paragraphStyle};
     CGSize detailSize = [details boundingRectWithSize:textAvailableSize options:options attributes:detailAttribs].size;
     CGRect detailRect = {titleRect.origin.x,subtitleRect.origin.y+subtitleRect.size.height+extraLineHeight,detailSize.width + extraLineHeight,detailSize.height + extraLineHeight};
     [details drawWithRect:detailRect options:options attributes:detailAttribs];
-    
-    NSDictionary * infoAttribs = @{NSFontAttributeName:[NSFont fontWithName:[titleFont fontName] size:[titleFont pointSize]*0.5], NSForegroundColorAttributeName:textColor, NSParagraphStyleAttributeName:paragraphStyle, NSShadowAttributeName:textShadow};
+
+    NSFont * infoFont = [[NSFontManager sharedFontManager] convertFont:titleFont toNotHaveTrait:NSFontBoldTrait];
+    NSDictionary * infoAttribs = @{NSFontAttributeName:[NSFont fontWithName:[infoFont fontName] size:[titleFont pointSize]*0.5], NSForegroundColorAttributeName:textColor, NSParagraphStyleAttributeName:paragraphStyle};
     CGSize infoSize = [moreInfo boundingRectWithSize:textAvailableSize options:options attributes:infoAttribs].size;
     CGRect infoRect = {titleRect.origin.x,detailRect.origin.y+detailRect.size.height + extraLineHeight,infoSize.width + extraWidth,infoSize.height + extraLineHeight};
     [moreInfo drawWithRect:infoRect options:options attributes:infoAttribs];

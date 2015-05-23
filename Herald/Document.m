@@ -27,6 +27,30 @@
     return self;
 }
 
+- (IBAction)exportImage:(id)sender
+{
+	NSSavePanel * imageSavePanel = [NSSavePanel savePanel];
+	[imageSavePanel setAllowedFileTypes:@[@"png"]];
+
+	NSModalResponse response = [imageSavePanel runModal];
+	if (response == NSModalResponseOK) {
+		NSURL * fileURL = [imageSavePanel URL];
+
+		SlideDocument * document = _documentObjectController.content;
+		NSColor * backgroundColor = [NSColor colorFromHexadecimalValue:document.backgroundColor];
+
+		NSImage * outputImage = [_imageGenerator imageForTitle:document.title subtitle:document.subtitle details:document.detail moreInfo:document.moreInfo textColor:[NSColor whiteColor] backgroundColor:backgroundColor width:1920];
+
+		CGImageRef cgRef = [outputImage CGImageForProposedRect:NULL
+												 context:nil
+												   hints:nil];
+		NSBitmapImageRep *newRep = [[NSBitmapImageRep alloc] initWithCGImage:cgRef];
+		[newRep setSize:[outputImage size]];   // if you want the same resolution
+		NSData *pngData = [newRep representationUsingType:NSPNGFileType properties:nil];
+		[pngData writeToURL:fileURL atomically:YES];
+	}
+}
+
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController {
     [super windowControllerDidLoadNib:aController];
     // Add any code here that needs to be executed once the windowController has loaded the document's window.
@@ -63,7 +87,7 @@
 - (void)_updateImage
 {
     SlideDocument * document = _documentObjectController.content;
-    NSColor * backgroundColor = [NSColor purpleColor];//[NSColor colorFromHexadecimalValue:document.backgroundColor];
+    NSColor * backgroundColor = [NSColor colorFromHexadecimalValue:document.backgroundColor];
 
 	_imagePreview.image = [_imageGenerator imageForTitle:document.title subtitle:document.subtitle details:document.detail moreInfo:document.moreInfo textColor:[NSColor whiteColor] backgroundColor:backgroundColor width:_imagePreview.bounds.size.width];
 

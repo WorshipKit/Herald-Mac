@@ -10,5 +10,5 @@
 #import <CoreData/CoreData.h>
 
 @interface Document : NSPersistentDocument
-
+- (IBAction)exportImage:(id)sender;
 @end
