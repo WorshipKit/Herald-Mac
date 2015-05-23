@@ -14,7 +14,9 @@
 @interface Document ()
 @property (nonatomic, weak) IBOutlet NSObjectController * documentObjectController;
 @property (nonatomic, weak) IBOutlet NSImageView * imagePreview;
+@property (nonatomic, weak) IBOutlet NSColorWell * colorWell;
 @property (nonatomic, strong) SlideGenerator * imageGenerator;
+- (IBAction)colorChanged:(id)sender;
 @end
 
 @implementation Document
@@ -51,6 +53,16 @@
 	}
 }
 
+- (IBAction)colorChanged:(id)sender
+{
+	SlideDocument * document = _documentObjectController.content;
+	NSString * colorString = [_colorWell.color hexadecimalValue];
+	NSLog(@"color: %@", colorString);
+	document.backgroundColor = colorString;
+
+	[self _updateImage];
+}
+
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController {
     [super windowControllerDidLoadNib:aController];
     // Add any code here that needs to be executed once the windowController has loaded the document's window.
@@ -76,6 +88,7 @@
 	[_documentObjectController.content addObserver:self forKeyPath:@"subtitle" options:NSKeyValueObservingOptionNew context:nil];
 	[_documentObjectController.content addObserver:self forKeyPath:@"detail" options:NSKeyValueObservingOptionNew context:nil];
 	[_documentObjectController.content addObserver:self forKeyPath:@"moreInfo" options:NSKeyValueObservingOptionNew context:nil];
+	[_documentObjectController.content addObserver:self forKeyPath:@"color" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -90,7 +103,7 @@
     NSColor * backgroundColor = [NSColor colorFromHexadecimalValue:document.backgroundColor];
 
 	_imagePreview.image = [_imageGenerator imageForTitle:document.title subtitle:document.subtitle details:document.detail moreInfo:document.moreInfo textColor:[NSColor whiteColor] backgroundColor:backgroundColor width:_imagePreview.bounds.size.width];
-
+	_colorWell.color = [NSColor colorFromHexadecimalValue:document.backgroundColor];
 }
 
 + (BOOL)autosavesInPlace {
