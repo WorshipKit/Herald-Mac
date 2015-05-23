@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 
+#import <HockeySDK/HockeySDK.h>
+
+
 @interface AppDelegate ()
 
 @end
@@ -16,6 +19,10 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
+
+	[[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"b732696f90b3decfe6e3c1b3035985b1"];
+	[[BITHockeyManager sharedHockeyManager] startManager];
+
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
