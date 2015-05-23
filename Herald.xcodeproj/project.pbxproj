@@ -19,13 +19,13 @@
 		583BBE1C1B0BB08A006F1D16 /* BSManagedDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 583BBE1A1B0BB08A006F1D16 /* BSManagedDocument.m */; };
 		583BBE1E1B0BB128006F1D16 /* libobjc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 583BBE1D1B0BB128006F1D16 /* libobjc.dylib */; };
 		583BBE201B0BB130006F1D16 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 583BBE1F1B0BB130006F1D16 /* Cocoa.framework */; };
-		583BBE231B0CF5F1006F1D16 /* SlideDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 583BBE221B0CF5F1006F1D16 /* SlideDocument.m */; };
 		583BBE271B0D04DA006F1D16 /* NSColor+String.m in Sources */ = {isa = PBXBuildFile; fileRef = 583BBE261B0D04DA006F1D16 /* NSColor+String.m */; };
 		5865A16D1B0C2718008CB519 /* SlideGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5865A16C1B0C2718008CB519 /* SlideGenerator.m */; };
 		58E7559F1B10263200B666AA /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58E7559E1B10263200B666AA /* Sparkle.framework */; };
 		58E755A11B1026DA00B666AA /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 58E7559E1B10263200B666AA /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		58E755A41B10CD4B00B666AA /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58E755A31B10CD4B00B666AA /* HockeySDK.framework */; };
 		58E755A61B10CD6E00B666AA /* HockeySDK.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 58E755A51B10CD6E00B666AA /* HockeySDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		58E755A91B10EE9800B666AA /* SlideDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E755A81B10EE9800B666AA /* SlideDocument.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,8 +73,6 @@
 		583BBE1B1B0BB08A006F1D16 /* BSManagedDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSManagedDocument.h; sourceTree = "<group>"; };
 		583BBE1D1B0BB128006F1D16 /* libobjc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libobjc.dylib; path = usr/lib/libobjc.dylib; sourceTree = SDKROOT; };
 		583BBE1F1B0BB130006F1D16 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		583BBE211B0CF5F1006F1D16 /* SlideDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideDocument.h; sourceTree = "<group>"; };
-		583BBE221B0CF5F1006F1D16 /* SlideDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideDocument.m; sourceTree = "<group>"; };
 		583BBE251B0D04DA006F1D16 /* NSColor+String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+String.h"; sourceTree = "<group>"; };
 		583BBE261B0D04DA006F1D16 /* NSColor+String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+String.m"; sourceTree = "<group>"; };
 		5865A16B1B0C2718008CB519 /* SlideGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideGenerator.h; sourceTree = "<group>"; };
@@ -82,6 +80,8 @@
 		58E7559E1B10263200B666AA /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		58E755A31B10CD4B00B666AA /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HockeySDK.framework; path = "HockeySDK-Mac/HockeySDK.framework"; sourceTree = "<group>"; };
 		58E755A51B10CD6E00B666AA /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HockeySDK.framework; path = "HockeySDK-Mac/HockeySDK.framework"; sourceTree = "<group>"; };
+		58E755A71B10EE9800B666AA /* SlideDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideDocument.h; sourceTree = "<group>"; };
+		58E755A81B10EE9800B666AA /* SlideDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideDocument.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,10 +109,10 @@
 		583BBDE21B0B9975006F1D16 = {
 			isa = PBXGroup;
 			children = (
+				58E755A71B10EE9800B666AA /* SlideDocument.h */,
+				58E755A81B10EE9800B666AA /* SlideDocument.m */,
 				58E755A51B10CD6E00B666AA /* HockeySDK.framework */,
 				58E755A31B10CD4B00B666AA /* HockeySDK.framework */,
-				583BBE211B0CF5F1006F1D16 /* SlideDocument.h */,
-				583BBE221B0CF5F1006F1D16 /* SlideDocument.m */,
 				583BBE1F1B0BB130006F1D16 /* Cocoa.framework */,
 				583BBE1D1B0BB128006F1D16 /* libobjc.dylib */,
 				583BBDED1B0B9975006F1D16 /* Herald */,
@@ -305,7 +305,7 @@
 				583BBE271B0D04DA006F1D16 /* NSColor+String.m in Sources */,
 				583BBDF71B0B9975006F1D16 /* Document.m in Sources */,
 				583BBDF41B0B9975006F1D16 /* main.m in Sources */,
-				583BBE231B0CF5F1006F1D16 /* SlideDocument.m in Sources */,
+				58E755A91B10EE9800B666AA /* SlideDocument.m in Sources */,
 				583BBE1C1B0BB08A006F1D16 /* BSManagedDocument.m in Sources */,
 				583BBDF21B0B9975006F1D16 /* AppDelegate.m in Sources */,
 				583BBE191B0B9CB5006F1D16 /* HeraldEditorView.m in Sources */,

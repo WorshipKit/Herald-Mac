@@ -2,6 +2,7 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="SlideDocument" representedClassName="SlideDocument" syncable="YES">
         <attribute name="backgroundColor" optional="YES" attributeType="String" defaultValueString="000000" syncable="YES"/>
+        <attribute name="backgroundImageOpacity" optional="YES" attributeType="Float" minValueString="0" maxValueString="1" defaultValueString="1" syncable="YES"/>
         <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imageData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="moreInfo" optional="YES" attributeType="String" syncable="YES"/>
@@ -9,6 +10,6 @@
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="SlideDocument" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="SlideDocument" positionX="-63" positionY="-18" width="128" height="150"/>
     </elements>
 </model>

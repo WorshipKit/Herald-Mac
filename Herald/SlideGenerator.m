@@ -11,7 +11,7 @@
 
 @implementation SlideGenerator
 
-- (NSImage *)imageForTitle:(NSString *)title subtitle:(NSString *)subtitle details:(NSString *)details moreInfo:(NSString *)moreInfo textColor:(NSColor *)textColor backgroundColor:(NSColor *)backgroundColor backgroundImage:(NSImage *)backgroundImage width:(CGFloat)width;
+- (NSImage *)imageForTitle:(NSString *)title subtitle:(NSString *)subtitle details:(NSString *)details moreInfo:(NSString *)moreInfo textColor:(NSColor *)textColor backgroundColor:(NSColor *)backgroundColor backgroundImage:(NSImage *)backgroundImage imageOpacity:(float)imageOpacity width:(CGFloat)width;
 {
 	//CGFloat scale = [[NSScreen mainScreen] backingScaleFactor];
 	CGFloat aspect = 9.0f/16.0f;
@@ -24,7 +24,6 @@
 
 	if (backgroundImage) {
 		CGSize imageSize = [backgroundImage size];
-		//CGFloat imageRatio = imageSize.height/imageSize.width;
 		if (imageSize.width > imageSize.height) {
 			CGFloat imageScale = imageSize.width/size.width;
 			imageSize.width = imageSize.width * imageScale;
@@ -36,7 +35,7 @@
 		}
 
 		CGRect imageRect = CGRectMake((size.width - imageSize.width)/2, (size.height - imageSize.height)/2, imageSize.width, imageSize.height);
-		[backgroundImage drawInRect:imageRect];
+		[backgroundImage drawInRect:imageRect fromRect:NSMakeRect(0, 0, [backgroundImage size].width, [backgroundImage size].height) operation:NSCompositeSourceOver fraction:imageOpacity];
 	}
 
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];

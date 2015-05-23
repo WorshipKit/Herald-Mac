@@ -73,7 +73,7 @@
 			backgroundImage = [[NSImage alloc] initWithData:document.imageData];
 		}
 
-		NSImage * outputImage = [_imageGenerator imageForTitle:document.title subtitle:document.subtitle details:document.detail moreInfo:document.moreInfo textColor:[NSColor whiteColor] backgroundColor:backgroundColor backgroundImage:backgroundImage width:1920];
+		NSImage * outputImage = [_imageGenerator imageForTitle:document.title subtitle:document.subtitle details:document.detail moreInfo:document.moreInfo textColor:[NSColor whiteColor] backgroundColor:backgroundColor backgroundImage:backgroundImage imageOpacity:document.backgroundImageOpacity width:1920];
 
 		CGImageRef cgRef = [outputImage CGImageForProposedRect:NULL
 												 context:nil
@@ -122,6 +122,7 @@
 	[_documentObjectController.content addObserver:self forKeyPath:@"moreInfo" options:NSKeyValueObservingOptionNew context:nil];
 	[_documentObjectController.content addObserver:self forKeyPath:@"color" options:NSKeyValueObservingOptionNew context:nil];
 	[_documentObjectController.content addObserver:self forKeyPath:@"imageData" options:NSKeyValueObservingOptionNew context:nil];
+	[_documentObjectController.content addObserver:self forKeyPath:@"backgroundImageOpacity" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -139,7 +140,7 @@
 		backgroundImage = [[NSImage alloc] initWithData:document.imageData];
 	}
 	
-	_imagePreview.image = [_imageGenerator imageForTitle:document.title subtitle:document.subtitle details:document.detail moreInfo:document.moreInfo textColor:[NSColor whiteColor] backgroundColor:backgroundColor backgroundImage:backgroundImage width:_imagePreview.bounds.size.width];
+	_imagePreview.image = [_imageGenerator imageForTitle:document.title subtitle:document.subtitle details:document.detail moreInfo:document.moreInfo textColor:[NSColor whiteColor] backgroundColor:backgroundColor backgroundImage:backgroundImage imageOpacity:document.backgroundImageOpacity width:_imagePreview.bounds.size.width];
 	_colorWell.color = [NSColor colorFromHexadecimalValue:document.backgroundColor];
 }
 
