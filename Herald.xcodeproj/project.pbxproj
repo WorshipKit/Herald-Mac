@@ -21,6 +21,16 @@
 		583BBE201B0BB130006F1D16 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 583BBE1F1B0BB130006F1D16 /* Cocoa.framework */; };
 		583BBE271B0D04DA006F1D16 /* NSColor+String.m in Sources */ = {isa = PBXBuildFile; fileRef = 583BBE261B0D04DA006F1D16 /* NSColor+String.m */; };
 		5865A16D1B0C2718008CB519 /* SlideGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5865A16C1B0C2718008CB519 /* SlideGenerator.m */; };
+		586BE92A1B1542F700FAA6D7 /* MyriadPro-Bold.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 586BE9201B1542F700FAA6D7 /* MyriadPro-Bold.otf */; };
+		586BE92B1B1542F700FAA6D7 /* MyriadPro-BoldCond.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 586BE9211B1542F700FAA6D7 /* MyriadPro-BoldCond.otf */; };
+		586BE92C1B1542F700FAA6D7 /* MyriadPro-BoldCondIt.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 586BE9221B1542F700FAA6D7 /* MyriadPro-BoldCondIt.otf */; };
+		586BE92D1B1542F700FAA6D7 /* MyriadPro-BoldIt.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 586BE9231B1542F700FAA6D7 /* MyriadPro-BoldIt.otf */; };
+		586BE92E1B1542F700FAA6D7 /* MyriadPro-Cond.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 586BE9241B1542F700FAA6D7 /* MyriadPro-Cond.otf */; };
+		586BE92F1B1542F700FAA6D7 /* MyriadPro-CondIt.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 586BE9251B1542F700FAA6D7 /* MyriadPro-CondIt.otf */; };
+		586BE9301B1542F700FAA6D7 /* MyriadPro-It.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 586BE9261B1542F700FAA6D7 /* MyriadPro-It.otf */; };
+		586BE9311B1542F700FAA6D7 /* MyriadPro-Regular.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 586BE9271B1542F700FAA6D7 /* MyriadPro-Regular.otf */; };
+		586BE9321B1542F700FAA6D7 /* MyriadPro-Semibold.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 586BE9281B1542F700FAA6D7 /* MyriadPro-Semibold.otf */; };
+		586BE9331B1542F700FAA6D7 /* MyriadPro-SemiboldIt.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 586BE9291B1542F700FAA6D7 /* MyriadPro-SemiboldIt.otf */; };
 		58E7559F1B10263200B666AA /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58E7559E1B10263200B666AA /* Sparkle.framework */; };
 		58E755A11B1026DA00B666AA /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 58E7559E1B10263200B666AA /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		58E755A41B10CD4B00B666AA /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58E755A31B10CD4B00B666AA /* HockeySDK.framework */; };
@@ -39,6 +49,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		586BE91F1B15429100FAA6D7 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Fonts;
+			dstSubfolderSpec = 7;
+			files = (
+				586BE92A1B1542F700FAA6D7 /* MyriadPro-Bold.otf in CopyFiles */,
+				586BE92B1B1542F700FAA6D7 /* MyriadPro-BoldCond.otf in CopyFiles */,
+				586BE92C1B1542F700FAA6D7 /* MyriadPro-BoldCondIt.otf in CopyFiles */,
+				586BE92D1B1542F700FAA6D7 /* MyriadPro-BoldIt.otf in CopyFiles */,
+				586BE92E1B1542F700FAA6D7 /* MyriadPro-Cond.otf in CopyFiles */,
+				586BE92F1B1542F700FAA6D7 /* MyriadPro-CondIt.otf in CopyFiles */,
+				586BE9301B1542F700FAA6D7 /* MyriadPro-It.otf in CopyFiles */,
+				586BE9311B1542F700FAA6D7 /* MyriadPro-Regular.otf in CopyFiles */,
+				586BE9321B1542F700FAA6D7 /* MyriadPro-Semibold.otf in CopyFiles */,
+				586BE9331B1542F700FAA6D7 /* MyriadPro-SemiboldIt.otf in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		58E755A01B10269F00B666AA /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -77,6 +106,16 @@
 		583BBE261B0D04DA006F1D16 /* NSColor+String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+String.m"; sourceTree = "<group>"; };
 		5865A16B1B0C2718008CB519 /* SlideGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideGenerator.h; sourceTree = "<group>"; };
 		5865A16C1B0C2718008CB519 /* SlideGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideGenerator.m; sourceTree = "<group>"; };
+		586BE9201B1542F700FAA6D7 /* MyriadPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Bold.otf"; sourceTree = "<group>"; };
+		586BE9211B1542F700FAA6D7 /* MyriadPro-BoldCond.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-BoldCond.otf"; sourceTree = "<group>"; };
+		586BE9221B1542F700FAA6D7 /* MyriadPro-BoldCondIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-BoldCondIt.otf"; sourceTree = "<group>"; };
+		586BE9231B1542F700FAA6D7 /* MyriadPro-BoldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-BoldIt.otf"; sourceTree = "<group>"; };
+		586BE9241B1542F700FAA6D7 /* MyriadPro-Cond.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Cond.otf"; sourceTree = "<group>"; };
+		586BE9251B1542F700FAA6D7 /* MyriadPro-CondIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-CondIt.otf"; sourceTree = "<group>"; };
+		586BE9261B1542F700FAA6D7 /* MyriadPro-It.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-It.otf"; sourceTree = "<group>"; };
+		586BE9271B1542F700FAA6D7 /* MyriadPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.otf"; sourceTree = "<group>"; };
+		586BE9281B1542F700FAA6D7 /* MyriadPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Semibold.otf"; sourceTree = "<group>"; };
+		586BE9291B1542F700FAA6D7 /* MyriadPro-SemiboldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-SemiboldIt.otf"; sourceTree = "<group>"; };
 		58E7559E1B10263200B666AA /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		58E755A31B10CD4B00B666AA /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HockeySDK.framework; path = "HockeySDK-Mac/HockeySDK.framework"; sourceTree = "<group>"; };
 		58E755A51B10CD6E00B666AA /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HockeySDK.framework; path = "HockeySDK-Mac/HockeySDK.framework"; sourceTree = "<group>"; };
@@ -109,6 +148,16 @@
 		583BBDE21B0B9975006F1D16 = {
 			isa = PBXGroup;
 			children = (
+				586BE9201B1542F700FAA6D7 /* MyriadPro-Bold.otf */,
+				586BE9211B1542F700FAA6D7 /* MyriadPro-BoldCond.otf */,
+				586BE9221B1542F700FAA6D7 /* MyriadPro-BoldCondIt.otf */,
+				586BE9231B1542F700FAA6D7 /* MyriadPro-BoldIt.otf */,
+				586BE9241B1542F700FAA6D7 /* MyriadPro-Cond.otf */,
+				586BE9251B1542F700FAA6D7 /* MyriadPro-CondIt.otf */,
+				586BE9261B1542F700FAA6D7 /* MyriadPro-It.otf */,
+				586BE9271B1542F700FAA6D7 /* MyriadPro-Regular.otf */,
+				586BE9281B1542F700FAA6D7 /* MyriadPro-Semibold.otf */,
+				586BE9291B1542F700FAA6D7 /* MyriadPro-SemiboldIt.otf */,
 				58E755A71B10EE9800B666AA /* SlideDocument.h */,
 				58E755A81B10EE9800B666AA /* SlideDocument.m */,
 				58E755A51B10CD6E00B666AA /* HockeySDK.framework */,
@@ -193,6 +242,7 @@
 				583BBDE91B0B9975006F1D16 /* Resources */,
 				58E755A01B10269F00B666AA /* CopyFiles */,
 				58E755A21B10CD1D00B666AA /* ShellScript */,
+				586BE91F1B15429100FAA6D7 /* CopyFiles */,
 			);
 			buildRules = (
 			);
